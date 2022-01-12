@@ -82,7 +82,7 @@ $('#addrow').click(function(){
 </script>
 
 <?php 
- $result = mysqli_query($conn, "SELECT src.id, src.unitCode, u.unitName FROM student_registered_classes src JOIN unitlist u ON  src.unitCode = u.unitCode WHERE regNo = '".$_SESSION['regNo']."'");
+ $result = mysqli_query($conn, "SELECT src.id, src.unitCode, u.unitName FROM student_registered_classes src JOIN unitlist u ON  src.unitCode = u.unitCode WHERE regNo = '".$_SESSION['regNo']." && dropped != 1");
  if(mysqli_num_rows($result)>0){
 echo '	<p><b>Registered Classes</b></p>
 <form action = "drop.php" method = "post">
